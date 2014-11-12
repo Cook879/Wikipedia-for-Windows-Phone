@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="Wikipedia.HistoryResultUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wikipedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="70"
+    d:DesignWidth="400">
+    
+    <Grid>
+        <Grid PointerPressed="HistoryResultUserControl_Clicked">
+            <TextBlock x:Name="userTextBlock" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="title" VerticalAlignment="Top" Height="50" Width="200" FontSize="21.333"/>
+            <TextBlock x:Name="timestampTextBlock" HorizontalAlignment="Left" Margin="0,21,0,0" TextWrapping="Wrap" Text="preview" VerticalAlignment="Top" Height="50" Width="400" FontSize="16"/>
+            <TextBlock x:Name="commentTextBlock" HorizontalAlignment="Left" Margin="0,52,0,0" TextWrapping="Wrap" Text="preview" VerticalAlignment="Top" Height="50" Width="400" FontSize="16"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

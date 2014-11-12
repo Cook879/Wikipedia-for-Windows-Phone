@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="Wikipedia.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wikipedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <WebView x:Name="WebViewControl"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             NavigationCompleted="Browser_NavigationCompleted"
+             />
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton
+                    x:Name="TocAppBarButton"
+                    x:Uid="TocAppBarButton"
+                    Click="TocAppBarButton_Click"
+                    Icon="List"
+                    Label="toc" />
+                <AppBarButton 
+                    x:Name="EditAppBarButton" 
+                    x:Uid="EditAppBarButton"
+                    Click="EditAppBarButton_Click"
+                    Icon="Edit" 
+                    Label="edit" />
+                <AppBarButton
+            	    x:Name="SearchAppBarButton"
+            	    x:Uid="SearchAppBarButton"
+                    Click="SearchAppBarButton_Click"
+                    Icon="Zoom"
+            	    Label="search" />
+
+                <AppBarButton
+                    x:Name="LanguageAppBarButton"
+                    x:Uid="LanguageAppBarButton"
+                    Click="LanguageAppBarButton_Click"
+                    Icon="World"
+                    Label="in other languages"/>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton
+                    x:Name="HomeAppBarButton"
+                    x:Uid="HomeAppBarButton"
+                    Click="HomeAppBarButton_Click"
+                    Label="main page"/>
+                <AppBarButton
+                    x:Name="RandomAppBarButton"
+                    x:Uid="RandomAppBarButton"
+                    Click="RandomAppBarButton_Click"
+                    Label="random article" />
+                <AppBarButton
+                    x:Name="LoginAppBarButton"
+                    x:Uid="LoginAppBarButton"
+                    Click="LoginAppBarButton_Click"
+                    Label="login"/>
+                <AppBarButton
+                    x:Name="LogoutAppBarButton"
+                    x:Uid="LogoutAppBarButton"
+                    Click="LogoutAppBarButton_Click"
+                    Label="logout"
+                    Visibility="Collapsed"/>
+                <AppBarButton
+                    x:Name="AboutAppBarButton"
+                    x:Uid="AboutAppBarButton"
+                    Click="AboutAppBarButton_Click"
+                    Label="about"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

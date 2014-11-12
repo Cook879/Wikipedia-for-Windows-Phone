@@ -1,0 +1,56 @@
+﻿Build started 12/11/2014 11:00:21.
+     1>Project "C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Wikipedia.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_arm\CL.exe /c /I"C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\\" /I"Generated Files\\" /IARM\Debug\ /Zi /ZW /ZW:nostdlib /nologo /W3 /WX- /sdl /MP /Od /Oy- /D PSAPI_VERSION=2 /D WINAPI_FAMILY=WINAPI_FAMILY_PHONE_APP /D _UITHREADCTXT_SUPPORT=0 /D _UNICODE /D UNICODE /D _DEBUG /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"ARM\Debug\Wikipedia.pch" /Fo"ARM\Debug\\" /Fd"ARM\Debug\vc120.pdb" /Gd /TP /wd4453 /wd28204 /FU"C:\Program Files (x86)\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\References\CommonConfiguration\neutral\platform.winmd" /FU"C:\Program Files (x86)\Windows Phone Kits\8.1\\References\CommonConfiguration\Neutral\Windows.winmd" /FU"C:\Program Files (x86)\Windows Phone Kits\8.1\\References\CommonConfiguration\Neutral\Windows.winmd" /analyze- /errorReport:prompt /bigobj TocContentDialog.xaml.cpp
+         TocContentDialog.xaml.cpp
+     1>TocContentDialog.xaml.cpp(34): warning C4018: '<' : signed/unsigned mismatch
+     1>TocContentDialog.xaml.cpp(42): warning C4129: ' ' : unrecognized character escape sequence
+       CreateWinMD:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_arm\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.exe" /INCREMENTAL /NOLOGO WindowsPhoneCore.lib RuntimeObject.lib PhoneAppModelHost.lib /NODEFAULTLIB:kernel32.lib /NODEFAULTLIB:ole32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /APPCONTAINER /WINMD:ONLY /WINMDFILE:"C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.winmd" /DYNAMICBASE /NXCOMPAT /MACHINE:ARM ARM\Debug\AboutPage.xaml.obj
+         ARM\Debug\App.xaml.obj
+         ARM\Debug\Article.obj
+         ARM\Debug\NavigationHelper.obj
+         ARM\Debug\RelayCommand.obj
+         ARM\Debug\SuspensionManager.obj
+         ARM\Debug\EditPage.xaml.obj
+         ARM\Debug\HelperFunctions.obj
+         ARM\Debug\LanguagesContentDialog.xaml.obj
+         ARM\Debug\LanguagesEntryUserControl.xaml.obj
+         ARM\Debug\LoginPage.xaml.obj
+         ARM\Debug\MainPage.xaml.obj
+         ARM\Debug\pch.obj
+         ARM\Debug\PreviewPage.xaml.obj
+         ARM\Debug\SavePage.xaml.obj
+         ARM\Debug\SearchContentDialog.xaml.obj
+         ARM\Debug\SearchResultUserControl.xaml.obj
+         ARM\Debug\TocContentDialog.xaml.obj
+         ARM\Debug\TocEntryUserControl.xaml.obj
+         ARM\Debug\XamlTypeInfo.Impl.g.obj
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_arm\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.exe" /INCREMENTAL /NOLOGO WindowsPhoneCore.lib RuntimeObject.lib PhoneAppModelHost.lib /NODEFAULTLIB:kernel32.lib /NODEFAULTLIB:ole32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /APPCONTAINER /WINMD:NO /WINMDFILE:"C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.winmd" /DYNAMICBASE /NXCOMPAT /MACHINE:ARM ARM\Debug\AboutPage.xaml.obj
+         ARM\Debug\App.xaml.obj
+         ARM\Debug\Article.obj
+         ARM\Debug\NavigationHelper.obj
+         ARM\Debug\RelayCommand.obj
+         ARM\Debug\SuspensionManager.obj
+         ARM\Debug\EditPage.xaml.obj
+         ARM\Debug\HelperFunctions.obj
+         ARM\Debug\LanguagesContentDialog.xaml.obj
+         ARM\Debug\LanguagesEntryUserControl.xaml.obj
+         ARM\Debug\LoginPage.xaml.obj
+         ARM\Debug\MainPage.xaml.obj
+         ARM\Debug\pch.obj
+         ARM\Debug\PreviewPage.xaml.obj
+         ARM\Debug\SavePage.xaml.obj
+         ARM\Debug\SearchContentDialog.xaml.obj
+         ARM\Debug\SearchResultUserControl.xaml.obj
+         ARM\Debug\TocContentDialog.xaml.obj
+         ARM\Debug\TocEntryUserControl.xaml.obj
+         ARM\Debug\XamlTypeInfo.Impl.g.obj
+         ARM\Debug\XamlTypeInfo.g.obj
+         Wikipedia.vcxproj -> C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.exe
+     1>Done Building Project "C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Wikipedia.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:52.32

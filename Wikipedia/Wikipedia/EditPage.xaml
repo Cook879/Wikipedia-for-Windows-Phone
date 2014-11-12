@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="Wikipedia.EditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wikipedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="0" Margin="19,0,0,9.667" Height="50">
+            <TextBlock x:Name="Title" Text="edit" Margin="0,-6.5,-3.167,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" Height="50" FontSize="26.667"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,0,19,9">
+            <TextBox x:Name="EditBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Loading page/section content" VerticalAlignment="Top" Background="White" Width="360" Height="501" Margin="2,0,0,0" AcceptsReturn="True"/>
+
+        </Grid>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="CancelAppBarButton" Icon="Cancel" Label="cancel" Click="CancelAppBarButton_Click"/>
+            <AppBarButton x:Name="PreviewAppBarButton" Icon="Zoom" Label="preview" Click="PreviewAppBarButton_Click"/>
+            <AppBarButton x:Name="SaveAppBarButton" Icon="Accept" Label="continue" Click="SaveAppBarButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

@@ -1,0 +1,1 @@
+C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Wikipedia.vcxproj;arm

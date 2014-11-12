@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutAppBarButton.Label" xml:space="preserve">
+    <value>за </value>
+  </data>
+  <data name="AboutTitle.Text" xml:space="preserve">
+    <value>за </value>
+  </data>
+  <data name="and.Text" xml:space="preserve">
+    <value>  и </value>
+  </data>
+  <data name="AppTitle.Text" xml:space="preserve">
+    <value>Wikipedia за Windows Phone 8.1 </value>
+  </data>
+  <data name="blocked" xml:space="preserve">
+    <value>Вашият акаунт е блокиран </value>
+  </data>
+  <data name="ByUsingThis.Text" xml:space="preserve">
+    <value>С помощта на това приложение вие се съгласявате с Уикипедия </value>
+  </data>
+  <data name="CancelAppBarButton.Label" xml:space="preserve">
+    <value>отмените </value>
+  </data>
+  <data name="cancelEditing" xml:space="preserve">
+    <value>Наистина ли искате да отмените редактирането на тази страница ли сте? </value>
+  </data>
+  <data name="ContinueButton.Content" xml:space="preserve">
+    <value>Още резултати </value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>Wikipedia за Windows Phone 8.1 версия 0.5 © 2014 Richard Cook </value>
+  </data>
+  <data name="CreativeCommons.Text" xml:space="preserve">
+    <value>Creative Commons Attribution-ShareAlike License </value>
+  </data>
+  <data name="EditAppBarButton.Label" xml:space="preserve">
+    <value>редактирам </value>
+  </data>
+  <data name="editSuccess" xml:space="preserve">
+    <value>Edit бе успешна </value>
+  </data>
+  <data name="Feedback.Text" xml:space="preserve">
+    <value>Изпрати доклади за грешки, обратна връзка и предложения за </value>
+  </data>
+  <data name="HomeAppBarButton.Label" xml:space="preserve">
+    <value>главната страница </value>
+  </data>
+  <data name="illegalUsername" xml:space="preserve">
+    <value>Потребителско име е незаконно </value>
+  </data>
+  <data name="langCode" xml:space="preserve">
+    <value>bg</value>
+  </data>
+  <data name="LanguageAppBarButton.Label" xml:space="preserve">
+    <value>на други езици </value>
+  </data>
+  <data name="LanguagesContentDialog.Title" xml:space="preserve">
+    <value>На други езици </value>
+  </data>
+  <data name="LoginAppBarButton.Label" xml:space="preserve">
+    <value>логин </value>
+  </data>
+  <data name="LoginPage.PrimaryButtonClick" xml:space="preserve">
+    <value>логин </value>
+  </data>
+  <data name="LoginPage.SecondaryButtonClick" xml:space="preserve">
+    <value>Отмени </value>
+  </data>
+  <data name="LoginPage.Title" xml:space="preserve">
+    <value>Вход в Wikipedia </value>
+  </data>
+  <data name="loginUnsuc" xml:space="preserve">
+    <value>Влез неуспешен - са вашите данни правилно? </value>
+  </data>
+  <data name="MinorEditBox.Content" xml:space="preserve">
+    <value>Това е малка промяна </value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>не </value>
+  </data>
+  <data name="noInternet" xml:space="preserve">
+    <value>Не е свързан към интернет </value>
+  </data>
+  <data name="noPassword" xml:space="preserve">
+    <value>Вие не сте въвели парола </value>
+  </data>
+  <data name="noResults" xml:space="preserve">
+    <value>Не са намерени резултати </value>
+  </data>
+  <data name="noUsername" xml:space="preserve">
+    <value>Вие не сте въвели потребителско име </value>
+  </data>
+  <data name="pageNotExist" xml:space="preserve">
+    <value>Страницата не съществува </value>
+  </data>
+  <data name="passwordBox.Header" xml:space="preserve">
+    <value>парола </value>
+  </data>
+  <data name="PreviewAppBarButton.Label" xml:space="preserve">
+    <value>предварителен преглед </value>
+  </data>
+  <data name="PrivacyPolicy.Text" xml:space="preserve">
+    <value>Декларация за поверителност </value>
+  </data>
+  <data name="RandomAppBarButton.Label" xml:space="preserve">
+    <value>случайна статия </value>
+  </data>
+  <data name="SaveAppBarButton.Label" xml:space="preserve">
+    <value>продължавам </value>
+  </data>
+  <data name="SaveButton.Content" xml:space="preserve">
+    <value>спасяване </value>
+  </data>
+  <data name="SavingChangesTo.Text" xml:space="preserve">
+    <value>Запазване на промените, за да </value>
+  </data>
+  <data name="SearchAppBarButton.Label" xml:space="preserve">
+    <value>търсене </value>
+  </data>
+  <data name="SearchContentDialog.Title" xml:space="preserve">
+    <value>Търсете в Уикипедия </value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>секунди </value>
+  </data>
+  <data name="standardError" xml:space="preserve">
+    <value>Съжаляваме - възникна грешка </value>
+  </data>
+  <data name="Summary.Text" xml:space="preserve">
+    <value>обобщение </value>
+  </data>
+  <data name="TermsOfUse.Text" xml:space="preserve">
+    <value>Условия за ползване </value>
+  </data>
+  <data name="TextA.Text" xml:space="preserve">
+    <value>Натискайки бутона "Запазване", вие се съгласявате с Условията за ползване и неотменимо се съгласяват да се освободи дарението си под CC BY-SA 3.0 License и GFDL с разбирането, че хипервръзка или URL е достатъчен за CC BY-SA 3.0 Признание. </value>
+  </data>
+  <data name="throttled" xml:space="preserve">
+    <value>Твърде много опити за влизане - моля изчакайте </value>
+  </data>
+  <data name="TocAppBarButton.Label" xml:space="preserve">
+    <value>Съдържание</value>
+  </data>
+  <data name="TocContentDialog.Title" xml:space="preserve">
+    <value>Съдържание </value>
+  </data>
+  <data name="usernameBox.Header" xml:space="preserve">
+    <value>потребителско име </value>
+  </data>
+  <data name="usernameNotExist" xml:space="preserve">
+    <value>Потребителско име не съществува </value>
+  </data>
+  <data name="WikipediaContent.Text" xml:space="preserve">
+    <value>Съдържание Wikipedia е на разположение е под </value>
+  </data>
+  <data name="wrongPassword" xml:space="preserve">
+    <value>Вашата парола е неправилна </value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>да</value>
+  </data>
+  <data name="loggedIn" xml:space="preserve">
+    <value>влезли като</value>
+  </data>
+  <data name="LogoutAppBarButton.Label" xml:space="preserve">
+    <value>Изход</value>
+  </data>
+</root>

@@ -1,0 +1,45 @@
+﻿Build started 12/08/2014 18:00:32.
+     1>Project "C:\Users\Richard\Desktop\Wikipedia\Wikipedia\Wikipedia.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Richard\Desktop\Wikipedia\Wikipedia\ /I"Generated Files\\" /IDebug\ /ZI /ZW /ZW:nostdlib /nologo /W3 /WX- /sdl /MP /Od /Oy- /D PSAPI_VERSION=2 /D WINAPI_FAMILY=WINAPI_FAMILY_PHONE_APP /D _UITHREADCTXT_SUPPORT=0 /D _UNICODE /D UNICODE /D _DEBUG /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"Debug\Wikipedia.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /wd4453 /wd28204 /FU"C:\Program Files (x86)\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\References\CommonConfiguration\neutral\platform.winmd" /FU"C:\Program Files (x86)\Windows Phone Kits\8.1\\References\CommonConfiguration\Neutral\Windows.winmd" /FU"C:\Program Files (x86)\Windows Phone Kits\8.1\\References\CommonConfiguration\Neutral\Windows.winmd" /analyze- /errorReport:prompt /bigobj AboutPage.xaml.cpp App.xaml.cpp Article.cpp Common\NavigationHelper.cpp Common\RelayCommand.cpp Common\SuspensionManager.cpp EditPage.xaml.cpp HelperFunctions.cpp LanguagesContentDialog.xaml.cpp LanguagesEntryUserControl.xaml.cpp LoginPage.xaml.cpp MainPage.xaml.cpp PreviewPage.xaml.cpp SavePage.xaml.cpp SearchContentDialog.xaml.cpp SearchResultUserControl.xaml.cpp TocContentDialog.xaml.cpp TocEntryUserControl.xaml.cpp
+         AboutPage.xaml.cpp
+         App.xaml.cpp
+         Article.cpp
+         NavigationHelper.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\aboutpage.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+     1>c:\users\richard\desktop\wikipedia\wikipedia\article.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         RelayCommand.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\app.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         SuspensionManager.cpp
+         EditPage.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\common\navigationhelper.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         HelperFunctions.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\common\relaycommand.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         LanguagesContentDialog.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\common\suspensionmanager.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         LanguagesEntryUserControl.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\helperfunctions.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         LoginPage.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\languagescontentdialog.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+     1>c:\users\richard\desktop\wikipedia\wikipedia\editpage.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+     1>c:\users\richard\desktop\wikipedia\wikipedia\languagesentryusercontrol.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         MainPage.xaml.cpp
+         PreviewPage.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\loginpage.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         SavePage.xaml.cpp
+         SearchContentDialog.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\previewpage.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         SearchResultUserControl.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\mainpage.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         TocContentDialog.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\savepage.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+     1>c:\users\richard\desktop\wikipedia\wikipedia\searchresultusercontrol.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+     1>c:\users\richard\desktop\wikipedia\wikipedia\searchcontentdialog.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+         TocEntryUserControl.xaml.cpp
+     1>c:\users\richard\desktop\wikipedia\wikipedia\toccontentdialog.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+     1>c:\users\richard\desktop\wikipedia\wikipedia\tocentryusercontrol.xaml.cpp : fatal error C1853: 'Debug\Wikipedia.pch' precompiled header file is from a previous version of the compiler, or the precompiled header is C++ and you are using it from C (or vice versa)
+     1>Done Building Project "C:\Users\Richard\Desktop\Wikipedia\Wikipedia\Wikipedia.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.13

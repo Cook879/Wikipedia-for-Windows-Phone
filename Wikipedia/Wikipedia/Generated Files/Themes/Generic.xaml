@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wikipedia"
+    xmlns:ctrl="clr-namespace:Wikipedia">
+
+    <Style TargetType="local:TocEntry">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:TocEntry">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock x:Name="TocEntry" Text="{TemplateBinding Text}"/>
+                            <Button x:Name="GoButton" Content="Go" Click="TocEntry_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+

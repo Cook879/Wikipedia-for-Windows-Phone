@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{8bbdd203-842c-4e84-a551-8fefdedd9e20}</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="Html">
+      <UniqueIdentifier>{01181395-eebd-4b05-bfa5-c0a0405a72a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Html\css">
+      <UniqueIdentifier>{4e5fa076-9fee-45b7-926a-fc7379ee572a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{c365342f-e11f-4ff2-89ca-ad943266df01}</UniqueIdentifier>
+    </Filter>
+    <Image Include="Assets\Logo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\WideLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <None Include="Html\index.html">
+      <Filter>Html</Filter>
+    </None>
+    <None Include="Html\css\phone.css">
+      <Filter>Html\css</Filter>
+    </None>
+    <Filter Include="Common">
+      <UniqueIdentifier>{81efd37e-aaac-4840-a2ca-8527747d7844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\en">
+      <UniqueIdentifier>{77876e56-c4a1-416c-9a7a-c508cd79338b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\ar">
+      <UniqueIdentifier>{400fc8a4-0d27-4b86-b1af-1ea85fba2772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\de">
+      <UniqueIdentifier>{1922dd61-8af1-41fb-9439-dc4c1f4e1c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\bg">
+      <UniqueIdentifier>{cd90d6e2-bfed-4a05-a25e-a962d1466dca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\zh-Hans">
+      <UniqueIdentifier>{2ae90485-c83c-4f84-9115-ab1c97799424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\zh-Hant">
+      <UniqueIdentifier>{fba39349-e689-4eb9-9fec-501b0b737672}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="HelperFunctions.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="EditPage.xaml.cpp" />
+    <ClCompile Include="LoginPage.xaml.cpp" />
+    <ClCompile Include="PreviewPage.xaml.cpp" />
+    <ClCompile Include="SavePage.xaml.cpp" />
+    <ClCompile Include="TocContentDialog.xaml.cpp" />
+    <ClCompile Include="TocEntryUserControl.xaml.cpp" />
+    <ClCompile Include="LanguagesContentDialog.xaml.cpp" />
+    <ClCompile Include="LanguagesEntryUserControl.xaml.cpp" />
+    <ClCompile Include="SearchResultUserControl.xaml.cpp" />
+    <ClCompile Include="SearchContentDialog.xaml.cpp" />
+    <ClCompile Include="Common\NavigationHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\RelayCommand.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\SuspensionManager.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutPage.xaml.cpp" />
+    <ClCompile Include="Article.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HelperFunctions.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="EditPage.xaml.h" />
+    <ClInclude Include="LoginPage.xaml.h" />
+    <ClInclude Include="PreviewPage.xaml.h" />
+    <ClInclude Include="SavePage.xaml.h" />
+    <ClInclude Include="TocContentDialog.xaml.h" />
+    <ClInclude Include="TocEntryUserControl.xaml.h" />
+    <ClInclude Include="LanguagesContentDialog.xaml.h" />
+    <ClInclude Include="LanguagesEntryUserControl.xaml.h" />
+    <ClInclude Include="SearchResultUserControl.xaml.h" />
+    <ClInclude Include="SearchContentDialog.xaml.h" />
+    <ClInclude Include="Common\NavigationHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\RelayCommand.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\SuspensionManager.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutPage.xaml.h" />
+    <ClInclude Include="Article.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+    <Page Include="EditPage.xaml" />
+    <Page Include="SavePage.xaml" />
+    <Page Include="PreviewPage.xaml" />
+    <Page Include="LoginPage.xaml" />
+    <Page Include="TocContentDialog.xaml" />
+    <Page Include="TocEntryUserControl.xaml" />
+    <Page Include="LanguagesContentDialog.xaml" />
+    <Page Include="LanguagesEntryUserControl.xaml" />
+    <Page Include="SearchResultUserControl.xaml" />
+    <Page Include="AboutPage.xaml" />
+    <Page Include="SearchContentDialog.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test.htm">
+      <Filter>Html</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en\Resources.resw">
+      <Filter>Strings\en</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\ar\Resources.resw">
+      <Filter>Strings\ar</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\de\Resources.resw">
+      <Filter>Strings\de</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\bg\Resources.resw">
+      <Filter>Strings\bg</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-Hans\Resources.resw">
+      <Filter>Strings\zh-Hans</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-Hant\Resources.resw">
+      <Filter>Strings\zh-Hant</Filter>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="VoiceCommands.xml" />
+  </ItemGroup>
+</Project>

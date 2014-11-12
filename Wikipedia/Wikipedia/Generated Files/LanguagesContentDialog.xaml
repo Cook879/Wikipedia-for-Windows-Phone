@@ -1,0 +1,18 @@
+﻿<ContentDialog
+    x:Name="LanguagesContentDialog"
+    x:Class="Wikipedia.LanguagesContentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wikipedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="In Other Languages">
+
+    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" ZoomMode="Disabled" HorizontalAlignment="Left" VerticalAlignment="Top" Width="365" Height="560" Margin="0,0,0,0">
+        <StackPanel x:Name="LanguagesStackPanel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+        </StackPanel>
+    </ScrollViewer>
+</ContentDialog>
+

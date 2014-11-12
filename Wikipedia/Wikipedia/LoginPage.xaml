@@ -1,0 +1,33 @@
+﻿<ContentDialog
+    x:Name="LoginPage"
+    x:Class="Wikipedia.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wikipedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Title="Login to Wikipedia"
+    PrimaryButtonText="Login"
+    PrimaryButtonClick="LoginButton_Click"
+    SecondaryButtonText="Cancel"
+    SecondaryButtonClick="CancelButton_Click"
+    >
+    
+
+    <Grid>
+        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="0,50,0,10">
+            <TextBox Name="usernameBox" Header="User name"/>
+            <PasswordBox  Name="passwordBox" Header="Password" IsPasswordRevealButtonEnabled="True"/>
+
+            <!-- Content body 
+            <TextBlock Name="body" Style="{StaticResource MessageDialogContentStyle}" TextWrapping="Wrap">
+                <TextBlock.Text>
+                    Blah blah some copyright stuff? Terms of use? E.t.c., e.t.c.
+                </TextBlock.Text>
+            </TextBlock>-->
+        </StackPanel>
+
+    </Grid>
+</ContentDialog>

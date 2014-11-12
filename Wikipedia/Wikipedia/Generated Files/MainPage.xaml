@@ -1,0 +1,78 @@
+﻿<Page
+    x:Class="Wikipedia.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wikipedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <WebView x:ConnectionId='1' x:Name="WebViewControl"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+                                                              
+             />
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:ConnectionId='2'
+                    x:Name="TocAppBarButton"
+                    x:Uid="TocAppBarButton"
+                                                 
+                    Icon="List"
+                    Label="toc" />
+                <AppBarButton x:ConnectionId='3' 
+                    x:Name="EditAppBarButton" 
+                    x:Uid="EditAppBarButton"
+                                                  
+                    Icon="Edit" 
+                    Label="edit" />
+                <AppBarButton x:ConnectionId='4'
+            	    x:Name="SearchAppBarButton"
+            	    x:Uid="SearchAppBarButton"
+                                                    
+                    Icon="Zoom"
+            	    Label="search" />
+
+                <AppBarButton x:ConnectionId='5'
+                    x:Name="LanguageAppBarButton"
+                    x:Uid="LanguageAppBarButton"
+                                                      
+                    Icon="World"
+                    Label="in other languages"/>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:ConnectionId='6'
+                    x:Name="HomeAppBarButton"
+                    x:Uid="HomeAppBarButton"
+                                                  
+                    Label="main page"/>
+                <AppBarButton x:ConnectionId='7'
+                    x:Name="RandomAppBarButton"
+                    x:Uid="RandomAppBarButton"
+                                                    
+                    Label="random article" />
+                <AppBarButton x:ConnectionId='8'
+                    x:Name="LoginAppBarButton"
+                    x:Uid="LoginAppBarButton"
+                                                   
+                    Label="login"/>
+                <AppBarButton x:ConnectionId='9'
+                    x:Name="LogoutAppBarButton"
+                    x:Uid="LogoutAppBarButton"
+                                                    
+                    Label="logout"
+                    Visibility="Collapsed"/>
+                <AppBarButton x:ConnectionId='10'
+                    x:Name="AboutAppBarButton"
+                    x:Uid="AboutAppBarButton"
+                                                   
+                    Label="about"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+

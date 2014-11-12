@@ -1,0 +1,18 @@
+﻿<ContentDialog
+    x:Name="SearchContentDialog"
+    x:Class="Wikipedia.SearchContentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Wikipedia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Title="Search Wikipedia">
+
+    <Grid>
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="-15,10,-13,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="390" TextChanged="SearchBox_TextChanged"/>
+        <StackPanel x:Name="ResultsPanel" HorizontalAlignment="Left" Height="423" Margin="-15,65,-13,0" VerticalAlignment="Top" Width="390"/>
+        <Button x:Name="ContinueButton" IsEnabled="False" Content="More results" HorizontalAlignment="Left" Margin="10,512,0,-81" Click="MoreSearchResults" Width="326"/>
+    </Grid>
+</ContentDialog>
