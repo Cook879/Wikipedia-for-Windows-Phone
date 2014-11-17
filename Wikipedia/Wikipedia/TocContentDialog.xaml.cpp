@@ -22,7 +22,6 @@ TocContentDialog::TocContentDialog()
 	InitializeComponent();
 }
 
-//void TocContentDialog::OnNavigatedTo(NavigationEventArgs^ e)
 TocContentDialog::TocContentDialog(Article^ article, WebView^ WebViewControl)
 {
 	InitializeComponent();
@@ -39,10 +38,5 @@ TocContentDialog::TocContentDialog(Article^ article, WebView^ WebViewControl)
 }
 
 String^ TocContentDialog::GetContent() {
-	std::wstring s(("\n\n\nCONTENT\n\n" + article->GetContent() + "\n\n\n\ END CONTENT \n\n\n")->Data());
-	//std::wstring s(L"\n\nGETCONTENT\n\n");
-	std::wstring stemp = std::wstring(s.begin(), s.end());
-	LPCWSTR sw = stemp.c_str();
-	OutputDebugString(sw);
 	return article->GetContent();
 }

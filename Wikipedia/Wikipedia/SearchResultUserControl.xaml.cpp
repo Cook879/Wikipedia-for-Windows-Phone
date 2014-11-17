@@ -37,7 +37,6 @@ SearchResultUserControl::SearchResultUserControl(String^ title, String^ lang, Se
 	article = ref new Article(title, lang);
 
 	titleTextBlock->Text = title;
-	//previewTextBlock->Text = preview;
 	this->contentDialog = contentDialog;
 }
 

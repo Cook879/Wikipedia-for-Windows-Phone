@@ -17,6 +17,7 @@ using namespace Windows::Data::Json;
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;
 using namespace Windows::Networking::Connectivity;
+using namespace Windows::Phone::UI::Input;
 using namespace Windows::UI::Popups;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
@@ -30,12 +31,14 @@ using namespace Windows::UI::Xaml::Navigation;
 using namespace Windows::Web::Http;
 
 static Windows::UI::Xaml::Interop::TypeName contentPageType = { "Wikipedia.MainPage", Windows::UI::Xaml::Interop::TypeKind::Metadata };
+static Windows::UI::Xaml::Interop::TypeName editPageType = { "Wikipedia.EditPage", Windows::UI::Xaml::Interop::TypeKind::Metadata };
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=390556
 
 SavePage::SavePage()
 {
 	InitializeComponent();
+	_backPressedToken = HardwareButtons::BackPressed += ref new EventHandler<BackPressedEventArgs^>(this, &SavePage::BackPressed);
 
 }
 
@@ -47,6 +50,15 @@ SavePage::SavePage()
 void SavePage::OnNavigatedTo(NavigationEventArgs^ e)
 {
 	edit = (Edit^)e->Parameter;
+
+	int section = edit->GetSectionId();
+	if (section != 0)
+		SummaryBox->Text = "/* " + edit->GetArticle()->GetSection(section)->line + " */";
+}
+
+void SavePage::OnNavigatedFrom(NavigationEventArgs^ e)
+{
+	HardwareButtons::BackPressed -= _backPressedToken;
 }
 
 void SavePage::SaveButton_Click() {
@@ -73,28 +85,12 @@ void SavePage::SaveButton_Click() {
 				properties->Insert("token", edit->GetToken());
 
 				HttpFormUrlEncodedContent^ propertiesEncoded = ref new HttpFormUrlEncodedContent(properties);
-				
-				//DEBUG
-				OutputDebugString(L"\nAAAAAAA\n");
-				std::wstring s(propertiesEncoded->ToString()->Data());
-				std::wstring stemp = std::wstring(s.begin(), s.end());
-				LPCWSTR sw = stemp.c_str();
-				OutputDebugString(sw);
-				OutputDebugString(L"\n");
 
 				create_task(edit->GetHttpClient()->PostAsync(uri, propertiesEncoded)).then([=](HttpResponseMessage^ response) {
 					response->EnsureSuccessStatusCode();
 
 					return create_task(response->Content->ReadAsStringAsync());
 				}).then([=](String^ responseString) {
-
-					//DEBUG
-					OutputDebugString(L"\nBBBBBB\n");
-					std::wstring s(responseString->Data());
-					std::wstring stemp = std::wstring(s.begin(), s.end());
-					LPCWSTR sw = stemp.c_str();
-					OutputDebugString(sw);
-					OutputDebugString(L"\n");
 
 					JsonObject^ json = JsonValue::Parse(responseString)->GetObject();
 					if (json->HasKey("edit")){
@@ -176,27 +172,12 @@ void SavePage::SubmitButton_Click() {
 
 
 	HttpFormUrlEncodedContent^ propertiesEncoded = ref new HttpFormUrlEncodedContent(properties);
-	//DEBUG
-	OutputDebugString(L"\nCCCCCCCCCCC\n");
-	std::wstring s(propertiesEncoded->ToString()->Data());
-	std::wstring stemp = std::wstring(s.begin(), s.end());
-	LPCWSTR sw = stemp.c_str();
-	OutputDebugString(sw);
-	OutputDebugString(L"\n");
-
+	
 	create_task(edit->GetHttpClient()->PostAsync(uri, propertiesEncoded)).then([=](HttpResponseMessage^ response) {
 		response->EnsureSuccessStatusCode();
 
 		return create_task(response->Content->ReadAsStringAsync());
 	}).then([=](String^ responseString) {
-
-		//DEBUG
-		OutputDebugString(L"\nDDDDDDDD\n");
-		std::wstring s(responseString->Data());
-		std::wstring stemp = std::wstring(s.begin(), s.end());
-		LPCWSTR sw = stemp.c_str();
-		OutputDebugString(sw);
-		OutputDebugString(L"\n");
 
 		JsonObject^ json = JsonValue::Parse(responseString)->GetObject();
 		if (json->HasKey("edit")){
@@ -250,4 +231,9 @@ void SavePage::SubmitButton_Click() {
 			return;
 		}
 	});
+}
+
+void SavePage::BackPressed(Object^ sender, BackPressedEventArgs^ e) {
+	this->Frame->Navigate(editPageType, edit);
+	e->Handled = true;
 }

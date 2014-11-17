@@ -39,12 +39,13 @@ namespace Wikipedia {
 			Platform::String^ GetContent(void);
 			bool HasContent(void);
 
-			void AddSection(Wikipedia::Section^ section);
-			Windows::Foundation::Collections::IVector<Wikipedia::Section^>^ GetSections();
+			void AddSection(Section^ section);
+			Windows::Foundation::Collections::IVector<Section^>^ GetSections();
+			Section^ Article::GetSection(int id);
 
 			bool HasLanguages(void);
-			void AddLanguage(Wikipedia::Article^ lang);
-			Windows::Foundation::Collections::IVector<Wikipedia::Article^>^ GetLanguages();
+			void AddLanguage(Article^ lang);
+			Windows::Foundation::Collections::IVector<Article^>^ GetLanguages();
 			void FoundLanguages();
 		private:
 			// Required variables
@@ -67,6 +68,9 @@ namespace Wikipedia {
 		Platform::String^ GetText();
 		Platform::String^ GetToken();
 		Windows::Web::Http::HttpClient^ GetHttpClient();
+		void SetHttpClient(Windows::Web::Http::HttpClient^ httpClient);
+		void SetToken(Platform::String^ token);
+		void SetText(Platform::String^ text);
 	private:
 		Article^ article;
 		int sectionId;

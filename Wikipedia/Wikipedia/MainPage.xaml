@@ -36,7 +36,6 @@
                     Click="SearchAppBarButton_Click"
                     Icon="Zoom"
             	    Label="search" />
-
                 <AppBarButton
                     x:Name="LanguageAppBarButton"
                     x:Uid="LanguageAppBarButton"

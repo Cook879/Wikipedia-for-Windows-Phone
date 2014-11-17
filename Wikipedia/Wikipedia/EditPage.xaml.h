@@ -22,14 +22,17 @@ namespace Wikipedia
 
 	protected:
 		virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
+		virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 
 	private:
 		Platform::String^ token;
 		Windows::Web::Http::HttpClient^ httpClient;
 		Wikipedia::Article^ article;
 		Windows::ApplicationModel::Resources::ResourceLoader^ loader;
-		Wikipedia::MainPage^ mainPage;
+		//Wikipedia::MainPage^ mainPage;
 		int section;
+
+		Wikipedia::Edit^ edit;
 
 		void SaveAppBarButton_Click();
 		void PreviewAppBarButton_Click();
@@ -37,5 +40,8 @@ namespace Wikipedia
 		void GoBack(Windows::UI::Popups::IUICommand^ command);
 		void DoNothing(Windows::UI::Popups::IUICommand^ command);
 		Wikipedia::Edit^ CreateEdit(void);
+
+		Windows::Foundation::EventRegistrationToken _backPressedToken;
+		void EditPage_BackPressed(Platform::Object^ sender, Windows::Phone::UI::Input::BackPressedEventArgs^ e);
 	};
 }

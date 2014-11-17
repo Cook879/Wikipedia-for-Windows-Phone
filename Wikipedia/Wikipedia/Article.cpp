@@ -46,8 +46,7 @@ Article::Article(String^ title, String^ lang) {
 	if (pos == string::npos) {
 		this->ns = "main";
 		this->name = title;
-	}
-	else {
+	} else {
 		this->ns = ref new String(titleStr.substr(0, pos).c_str());
 		this->name = ref new String(titleStr.substr(pos + 1).c_str());
 	}
@@ -120,6 +119,9 @@ IVector<Section^>^ Article::GetSections() {
 	return sections;
 }
 
+Section^ Article::GetSection(int id) {
+	return sections->GetAt(id);
+}
 
 bool Article::HasLanguages(void) {
 	return foundLanguages;
@@ -136,6 +138,9 @@ IVector<Article^>^ Article::GetLanguages() {
 	return languages;
 }
 
+// 
+// Section class
+//
 Section::Section(int id, String^ line, String^ text, int level, Section^ parent) {
 	this->id = id;
 	this->line = line;
@@ -144,6 +149,10 @@ Section::Section(int id, String^ line, String^ text, int level, Section^ parent)
 	this->parent = parent;
 }
 
+
+// 
+// Edit class
+//
 Edit::Edit(Article^ article, int sectionId, String^ text, String^ token, HttpClient^ httpClient) {
 	this->article = article;
 	this->sectionId = sectionId;
@@ -167,4 +176,16 @@ String^ Edit::GetToken() {
 }
 HttpClient^ Edit::GetHttpClient() {
 	return httpClient;
+}
+
+void Edit::SetHttpClient(HttpClient^ httpClient) {
+	this->httpClient = httpClient;
+}
+
+void Edit::SetToken(Platform::String^ token) {
+	this->token = token;
+}
+
+void Edit::SetText(Platform::String^ text) {
+	this->text = text;
 }

@@ -18,9 +18,6 @@ namespace Wikipedia
 		TocContentDialog(Wikipedia::Article^ article, Windows::UI::Xaml::Controls::WebView^ WebViewControl);
 		Platform::String^ GetContent();
 
-	protected:
-		//virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
-
 	private:
 		Wikipedia::Article^ article;
 		Windows::UI::Xaml::Controls::WebView^ WebViewControl;

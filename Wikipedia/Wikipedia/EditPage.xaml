@@ -20,7 +20,6 @@
             <TextBlock x:Name="Title" Text="edit" Margin="0,-6.5,-3.167,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" Height="50" FontSize="26.667"/>
         </StackPanel>
 
-        <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,0,19,9">
             <TextBox x:Name="EditBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Loading page/section content" VerticalAlignment="Top" Background="White" Width="360" Height="501" Margin="2,0,0,0" AcceptsReturn="True"/>
 

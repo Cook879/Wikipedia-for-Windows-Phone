@@ -31,7 +31,6 @@ TocEntryUserControl::TocEntryUserControl()
 
 TocEntryUserControl::TocEntryUserControl(Section^ section, WebView^ WebViewControl, Wikipedia::TocContentDialog^ contentDialog) {
 	InitializeComponent();
-	//TocEntryUserControl^ teuc = ref new TocEntryUserControl(sections->GetAt(i)->line, "sectionLink" + i, sections->GetAt(i)->level, WebViewControl, this);
 
 	textBlock->Text = section->line;
 
@@ -47,26 +46,25 @@ void TocEntryUserControl::TocEntryUserControl_Clicked() {
 	Vector<String^>^ param = ref new Vector<String^>();
 	param->Append("sectionLink" + section->id);
 
-	//DEBUG
-	//std::wstring s(("sectionLink" + section->id + "")->Data());
-	//std::wstring stemp = std::wstring(s.begin(), s.end());
-//LPCWSTR sw = stemp.c_str();
-//OutputDebugString(sw);
-
 	if(section->parent != nullptr)
-		OpenSection(section);
+		OpenSection(section->parent);
 
 	create_task(WebViewControl->InvokeScriptAsync("anchorNew", param));
 	contentDialog->Hide();
 }
 
-void TocEntryUserControl::OpenSection(Section^ parent) {
+void TocEntryUserControl::OpenSection(Section^ section) {
 	//create_task(WebViewControl->InvokeScriptAsync("refresh", nullptr));
 
-	WebViewControl->NavigateToString(contentDialog->GetContent());
+	//WebViewControl->NavigateToString(contentDialog->GetContent());
+
+	//OutputDebugString(("OpenSection" + section->id + "")->Data());
+
+	Section^ parent = section;
 
 	while (parent->parent != nullptr) {
 		OpenSection(parent->parent);
+		parent = parent->parent;
 	}
 	Vector<String^>^ param = ref new Vector<String^>();
 	param->Append("section" + section->id);

@@ -25,7 +25,6 @@ namespace Wikipedia
 	protected:
 		virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 		virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
-		virtual void OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs^ e) override;
 
 	private:
 		// Default stuff

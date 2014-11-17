@@ -14,10 +14,7 @@
 
             <!-- ListenFor elements provide ways to say the command, including references to 
             {PhraseLists} and {PhraseTopics} as well as [optional] words -->
-            <ListenFor> Wikipedia </ListenFor>
-            <ListenFor> Wikipedia {dictatedSearchTerms} </ListenFor>
-            <ListenFor> Wiki {dictatedSearchTerms} </ListenFor>
-            <ListenFor> Wiki </ListenFor>
+            <ListenFor> {dictatedSearchTerms} </ListenFor>
 
           <!--Feedback provides the displayed and spoken text when your command is triggered -->
             <Feedback> Searching Wikipedia... </Feedback>
@@ -25,7 +22,21 @@
             <!-- Navigate specifies the desired page or invocation destination for the Command-->
             <Navigate Target="MainPage.xaml" />
         </Command>
+      
+      <Command Name="Wiki">
+        <!-- The Command example appears in the drill-down help page for your app -->
+        <Example> 'Windows Phone' </Example>
 
+        <!-- ListenFor elements provide ways to say the command, including references to 
+            {PhraseLists} and {PhraseTopics} as well as [optional] words -->
+        <ListenFor> {dictatedSearchTerms} </ListenFor>
+
+        <!--Feedback provides the displayed and spoken text when your command is triggered -->
+        <Feedback> Searching Wikipedia... </Feedback>
+
+        <!-- Navigate specifies the desired page or invocation destination for the Command-->
+        <Navigate Target="MainPage.xaml" />
+      </Command>
         <PhraseTopic Label="dictatedSearchTerms" Scenario="Search">
             <Subject> Wikipedia </Subject>
         </PhraseTopic>

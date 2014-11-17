@@ -7,97 +7,97 @@
     <SolutionConfiguration>Debug|ARM</SolutionConfiguration>
     <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>6dc838b1-9f1c-4815-9b24-35a4564d8597</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\ARM\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.exe">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.exe">
       <PackagePath>Wikipedia.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.winmd">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\Wikipedia.winmd">
       <PackagePath>Wikipedia.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\VoiceCommands.xml">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\VoiceCommands.xml">
       <PackagePath>VoiceCommands.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Assets\Logo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\Assets\Logo.scale-240.png">
       <PackagePath>Assets\Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Assets\SmallLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\Assets\SmallLogo.scale-240.png">
       <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Assets\SplashScreen.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\Assets\SplashScreen.scale-240.png">
       <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Assets\Square71x71Logo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\Assets\Square71x71Logo.scale-240.png">
       <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Assets\StoreLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\Assets\StoreLogo.scale-240.png">
       <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Assets\WideLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\Assets\WideLogo.scale-240.png">
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Html\css\phone.css">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\Html\css\phone.css">
       <PackagePath>Html\css\phone.css</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\Html\index.html">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\Html\index.html">
       <PackagePath>Html\index.html</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\Wikipedia\test.htm">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\Wikipedia\test.htm">
       <PackagePath>test.htm</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\AboutPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\AboutPage.xbf">
       <PackagePath>AboutPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\EditPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\EditPage.xbf">
       <PackagePath>EditPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\LanguagesContentDialog.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\LanguagesContentDialog.xbf">
       <PackagePath>LanguagesContentDialog.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\LanguagesEntryUserControl.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\LanguagesEntryUserControl.xbf">
       <PackagePath>LanguagesEntryUserControl.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\LoginPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\PreviewPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\PreviewPage.xbf">
       <PackagePath>PreviewPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\SavePage.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\SavePage.xbf">
       <PackagePath>SavePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\SearchContentDialog.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\SearchContentDialog.xbf">
       <PackagePath>SearchContentDialog.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\SearchResultUserControl.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\SearchResultUserControl.xbf">
       <PackagePath>SearchResultUserControl.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\TocContentDialog.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\TocContentDialog.xbf">
       <PackagePath>TocContentDialog.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\TocEntryUserControl.xbf">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\TocEntryUserControl.xbf">
       <PackagePath>TocEntryUserControl.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Windows Phone Programming\Wikipedia\ARM\Debug\Wikipedia\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Richard\Desktop\Wikipedia-for-Windows-Phone\Wikipedia\ARM\Debug\Wikipedia\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

@@ -36,7 +36,6 @@
                                                     
                     Icon="Zoom"
             	    Label="search" />
-
                 <AppBarButton x:ConnectionId='5'
                     x:Name="LanguageAppBarButton"
                     x:Uid="LanguageAppBarButton"

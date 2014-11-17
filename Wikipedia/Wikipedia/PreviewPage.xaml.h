@@ -21,6 +21,7 @@ namespace Wikipedia
 
 	protected:
 		virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
+		virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 
 	private:
 		Wikipedia::Edit^ edit;
@@ -30,7 +31,6 @@ namespace Wikipedia
 
 		void Browser_NavigationCompleted(Platform::Object^ sender, Windows::UI::Xaml::Controls::WebViewNavigationCompletedEventArgs^ e);
 		void PreviewPage_BackPressed(Platform::Object^ sender, Windows::Phone::UI::Input::BackPressedEventArgs^ e);
-		//void WebViewControl_NavigationStarting(Windows::UI::Xaml::Controls::WebView^ sender, Windows::UI::Xaml::Controls::WebViewNavigationStartingEventArgs^ args);
 		void WebViewControl_ContentLoading(Platform::Object^ sender, Windows::UI::Xaml::Controls::WebViewNavigationStartingEventArgs^ args);
 
 		void EditAppBarButton_Click();

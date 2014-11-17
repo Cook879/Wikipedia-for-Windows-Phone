@@ -14,7 +14,6 @@ namespace Wikipedia {
 			std::wstring UnderscoreToSpace(std::wstring s);
 			void DoNothing(Windows::UI::Popups::IUICommand^ command);
 			Platform::String^ UnderscoreToSpace(Platform::String^ s);
-			void Sleep(uint32 ms);
 
 			Platform::String^ ProcessSection(Platform::String^ sectionStr, int id, int level);
 			Platform::String^ ProcessContent(Platform::String^ contentStr, Platform::String^ title);

@@ -17,6 +17,7 @@ using namespace Windows::Data::Json;
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;
 using namespace Windows::Networking::Connectivity;
+using namespace Windows::Phone::UI::Input;
 using namespace Windows::UI::Popups;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
@@ -29,14 +30,15 @@ using namespace Windows::Web::Http;
 
 static Windows::UI::Xaml::Interop::TypeName contentPageType = { "Wikipedia.MainPage", Windows::UI::Xaml::Interop::TypeKind::Metadata };
 static Windows::UI::Xaml::Interop::TypeName savePageType = { "Wikipedia.SavePage", Windows::UI::Xaml::Interop::TypeKind::Metadata };
+static Windows::UI::Xaml::Interop::TypeName editPageType = { "Wikipedia.EditPage", Windows::UI::Xaml::Interop::TypeKind::Metadata };
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=390556
 
 PreviewPage::PreviewPage()
 {
 	InitializeComponent();
-	//WebViewControl->NavigationStarting += ref new TypedEventHandler<WebView^, WebViewNavigationStartingEventArgs^>(this, &PreviewPage::WebViewControl_NavigationStarting);
 	loader = ref new Windows::ApplicationModel::Resources::ResourceLoader();
+	_backPressedToken = HardwareButtons::BackPressed += ref new EventHandler<BackPressedEventArgs^>(this, &PreviewPage::PreviewPage_BackPressed);
 
 	firstTime = true;
 }
@@ -69,18 +71,12 @@ void PreviewPage::OnNavigatedTo(NavigationEventArgs^ e)
 
 					return create_task(response->Content->ReadAsStringAsync());
 				}).then([=](String^ responseString) {
-					//DEBUG
-					std::wstring s(responseString->Data());
-					std::wstring stemp = std::wstring(s.begin(), s.end());
-					LPCWSTR sw = stemp.c_str();
-					OutputDebugString(sw);
 					try {
 						JsonObject^ json = JsonValue::Parse(responseString)->GetObject();
 						
 						if (json->HasKey("parse")) {
 							json = json->GetNamedObject("parse");
 							
-							// Probably fucks up with sections...
 							if (json->HasKey("text")) {
 								json = json->GetNamedObject("text");
 								
@@ -124,12 +120,12 @@ void PreviewPage::OnNavigatedTo(NavigationEventArgs^ e)
 }
 
 // Intercept the URI and stop it from being followed
-//void PreviewPage::WebViewControl_NavigationStarting(WebView^ sender, WebViewNavigationStartingEventArgs^ args)
 void PreviewPage::WebViewControl_ContentLoading(Object^ sender, WebViewNavigationStartingEventArgs^ args)
 {
+	// Seems like silly code - actually very important or page won't load for the first time!
 	if (firstTime == false) {
 		WebViewControl->Stop();
-		HelperFunctions::ErrorMessage("You can't follow links of the preview page");
+		HelperFunctions::ErrorMessage("You can't follow links off of the preview page!");
 		firstTime = true;
 		WebViewControl->NavigateToString(text);
 	}
@@ -139,7 +135,7 @@ void PreviewPage::WebViewControl_ContentLoading(Object^ sender, WebViewNavigatio
 }
 
 void PreviewPage::EditAppBarButton_Click() {
-	// Go back
+	this->Frame->Navigate(editPageType, edit);
 }
 
 void PreviewPage::CancelAppBarButton_Click() {
@@ -161,4 +157,14 @@ void PreviewPage::Cancel(IUICommand^ command){
 
 void PreviewPage::SaveAppBarButton_Click() {
 	this->Frame->Navigate(savePageType, edit);
+}
+
+void PreviewPage::PreviewPage_BackPressed(Object^ sender, BackPressedEventArgs^ e) {
+	this->Frame->Navigate(editPageType, edit);
+	e->Handled = true;
+}
+
+void PreviewPage::OnNavigatedFrom(NavigationEventArgs^ e)
+{
+	HardwareButtons::BackPressed -= _backPressedToken;
 }

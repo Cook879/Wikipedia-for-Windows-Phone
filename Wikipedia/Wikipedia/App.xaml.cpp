@@ -9,6 +9,7 @@
 using namespace Wikipedia;
 
 using namespace Platform;
+using namespace Platform::Collections;
 using namespace Windows::ApplicationModel;
 using namespace Windows::ApplicationModel::Activation;
 using namespace Windows::Foundation;
@@ -134,4 +135,80 @@ void App::OnSuspending(Object^ sender, SuspendingEventArgs^ e)
 	(void) e;		// Unused parameter
 
 	// TODO: Save application state and stop any background activity
+}
+
+// Cortana stuff
+void App::OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs^ e)
+{
+	IVector<Object^>^ params = ref new Vector<Object^>();
+
+	if (e->Kind == Windows::ApplicationModel::Activation::ActivationKind::VoiceCommand) {
+
+		Windows::ApplicationModel::Activation::VoiceCommandActivatedEventArgs^ args = (Windows::ApplicationModel::Activation::VoiceCommandActivatedEventArgs^) e;
+		Windows::Media::SpeechRecognition::SpeechRecognitionResult^ result = args->Result;
+
+		String^ voiceCommand = result->RulePath->GetAt(0);
+		String^ textSpoken = result->Text;
+		String^ navigationTarget = result->SemanticInterpretation->Properties->Lookup("NavigationTarget")->GetAt(0);
+
+		OutputDebugString((voiceCommand + " " + textSpoken + "  " + navigationTarget)->Data());
+
+		if (voiceCommand == "Wikipedia" || voiceCommand == "Wiki") {
+			if (textSpoken != nullptr) {
+				params->Append(L"Search");
+				params->Append(textSpoken);
+			}
+		}
+	}
+
+	auto rootFrame = dynamic_cast<Frame^>(Window::Current->Content);
+
+	// Do not repeat app initialization when the Window already has content,
+	// just ensure that the window is active.
+	if (rootFrame == nullptr)
+	{
+		// Create a Frame to act as the navigation context and associate it with
+		// a SuspensionManager key
+		rootFrame = ref new Frame();
+
+		// TODO: Change this value to a cache size that is appropriate for your application.
+		rootFrame->CacheSize = 1;
+
+		if (e->PreviousExecutionState == ApplicationExecutionState::Terminated)
+		{
+			// TODO: Restore the saved session state only when appropriate, scheduling the
+			// final launch steps after the restore is complete.
+		}
+
+		// Place the frame in the current Window
+		Window::Current->Content = rootFrame;
+	}
+
+	if (rootFrame->Content == nullptr)
+	{
+		// Removes the turnstile navigation for startup.
+		if (rootFrame->ContentTransitions != nullptr)
+		{
+			_transitions = ref new TransitionCollection();
+			for (auto transition : rootFrame->ContentTransitions)
+			{
+				_transitions->Append(transition);
+			}
+		}
+
+		rootFrame->ContentTransitions = nullptr;
+		_firstNavigatedToken = rootFrame->Navigated += ref new NavigatedEventHandler(this, &App::RootFrame_FirstNavigated);
+
+		// When the navigation stack isn't restored navigate to the first page,
+		// configuring the new page by passing required information as a navigation
+		// parameter.		
+
+		if (!rootFrame->Navigate(MainPage::typeid, params))
+		{
+			throw ref new FailureException("Failed to create initial page");
+		}
+	}
+
+	// Ensure the current window is active
+	Window::Current->Activate();
 }

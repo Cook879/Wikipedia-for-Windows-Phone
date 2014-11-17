@@ -20,13 +20,6 @@
         <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="0,50,0,10">
             <TextBox Name="usernameBox" Header="User name"/>
             <PasswordBox  Name="passwordBox" Header="Password" IsPasswordRevealButtonEnabled="True"/>
-
-            <!-- Content body 
-            <TextBlock Name="body" Style="{StaticResource MessageDialogContentStyle}" TextWrapping="Wrap">
-                <TextBlock.Text>
-                    Blah blah some copyright stuff? Terms of use? E.t.c., e.t.c.
-                </TextBlock.Text>
-            </TextBlock>-->
         </StackPanel>
 
     </Grid>

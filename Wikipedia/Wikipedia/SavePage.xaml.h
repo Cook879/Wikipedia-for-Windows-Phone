@@ -21,6 +21,7 @@ namespace Wikipedia
 
 	protected:
 		virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
+		virtual void OnNavigatedFrom(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
 
 	private:
 		Wikipedia::Edit^ edit;
@@ -28,5 +29,9 @@ namespace Wikipedia
 
 		void SaveButton_Click(void);
 		void SubmitButton_Click(void);
+
+		Windows::Foundation::EventRegistrationToken _backPressedToken;
+		void BackPressed(Platform::Object^ sender, Windows::Phone::UI::Input::BackPressedEventArgs^ e);
+
 	};
 }

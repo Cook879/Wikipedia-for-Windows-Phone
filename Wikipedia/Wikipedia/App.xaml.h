@@ -18,6 +18,7 @@ namespace Wikipedia
 		App();
 
 		virtual void OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEventArgs^ e) override;
+		virtual void OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs^ e) override;
 
 	private:
 		Windows::UI::Xaml::Media::Animation::TransitionCollection^ _transitions;

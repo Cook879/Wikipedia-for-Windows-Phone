@@ -21,13 +21,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
             <TextBlock x:Name="AppTitle" Text="Wikipedia for Windows Phone" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
             <TextBlock x:Name="AboutTitle" Text="about" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
         </StackPanel>
 
-        <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,10,19,-1">
             <TextBlock x:Name="Copyright" Margin="0,0,0,442" FontSize="18.667" TextWrapping="Wrap">
              Wikipedia for Windows Phone v0.5 ©2014 Richard Cook

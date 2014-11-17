@@ -49,7 +49,9 @@ MainPage::MainPage()
 	loader = ref new Windows::ApplicationModel::Resources::ResourceLoader();
 
 	// TODO change to main page
-	article = ref new Article("User:Cook879/sandbox", loader->GetString("langCode"));
+	//article = ref new Article("User:Cook879/sandbox", loader->GetString("langCode"));
+	article = ref new Article("Main Page", loader->GetString("langCode"));
+	//article = ref new Article("Frank Sinatra", "de");
 
 	// Set up back button
 	history = ref new Vector<String^>();
@@ -72,9 +74,13 @@ void MainPage::OnNavigatedTo(NavigationEventArgs^ e)
 	}
 
 	// Check if we have a page we want
-	if (e->Parameter != nullptr)
-		article = (Article^)e->Parameter;
-
+	if (e->Parameter != nullptr) {
+		if (e->Parameter->GetType()->ToString()->Equals("String"))
+			article = (Article^)e->Parameter;
+		else {
+			OutputDebugString(L"\n\nvoice search\n\n");
+		}
+	}
 	WebViewControl->NavigationStarting += ref new TypedEventHandler<WebView^, WebViewNavigationStartingEventArgs^>(this, &MainPage::WebViewControl_NavigationStarting);
 
 	// Check if we need to get content or not
@@ -109,23 +115,6 @@ void MainPage::OnNavigatedFrom(NavigationEventArgs^ e)
 	HardwareButtons::BackPressed -= _backPressedToken;
 }
 
-// Cortana stuff
-void MainPage::OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs^ e)
-{
-	if (e->Kind == Windows::ApplicationModel::Activation::ActivationKind::VoiceCommand) {
-		Windows::ApplicationModel::Activation::VoiceCommandActivatedEventArgs^ args = (Windows::ApplicationModel::Activation::VoiceCommandActivatedEventArgs^) e;
-		Windows::Media::SpeechRecognition::SpeechRecognitionResult^ result = args->Result;
-
-		String^ voiceCommand = result->RulePath->GetAt(0);
-		String^ textSpoken = result->Text;
-		String^ navigationTarget = result->SemanticInterpretation->Properties->Lookup("NavigationTarget")->GetAt(0);
-
-		if (voiceCommand == "Wikipedia") {
-			if (textSpoken != nullptr) {
-			}
-		}
-	}
-}
 
 void MainPage::Browser_NavigationCompleted(Object^ sender, WebViewNavigationCompletedEventArgs^ e)
 {}
@@ -219,10 +208,7 @@ void MainPage::LoadContent() {
 										content += sectionText;
 
 										int diff = curLevel - nextLevel;
-										std::wstring s(("curLevel = " + curLevel + "    nextLevel = " + nextLevel + "   therefore curLevel-nextLevel=diff= " + diff + "\n")->Data());
-										std::wstring stemp = std::wstring(s.begin(), s.end());
-										LPCWSTR sw = stemp.c_str();
-										OutputDebugString(sw);
+
 										if (diff < 0) {
 											// Ain't gonna do a thing
 										}
@@ -245,10 +231,7 @@ void MainPage::LoadContent() {
 											parentStr = "null";
 										else
 											parentStr = section->parent->id + "";
-										s = (section->id + " parent is " + parentStr + "\n")->Data();
-										stemp = std::wstring(s.begin(), s.end());
-										sw = stemp.c_str();
-										OutputDebugString(sw);
+										
 
 										diff--;
 
@@ -310,75 +293,63 @@ void MainPage::LoadContent() {
 // Intercept the URI and make sure to direct it to its intended destination
 void MainPage::WebViewControl_NavigationStarting(WebView^ sender, WebViewNavigationStartingEventArgs^ args)
 {
-	OutputDebugString(L"Method: webviewcontrolnavigationstarting");
+	wstring uri = args->Uri->ToString()->Data();
 
-		wstring uri = args->Uri->ToString()->Data();
-		OutputDebugString(uri.c_str());
+	if (!uri.empty()) {
 
-		if (!uri.empty()) {
+		wstring about = L"about:/wiki";
+		if (uri.find(about) == 0)  {
 
-			wstring about = L"about:/wiki";
-			if (uri.find(about) == 0)  {
-				wstring pageName = uri.substr(about.size() + 1);
+			NavigateToString(article->GetContent());
+			wstring pageName = uri.substr(about.size() + 1);
 
-				article = ref new Article(ref new String(pageName.c_str()), article->GetLang());
+			//article = ref new Article(ref new String(pageName.c_str()), article->GetLang());
 
-				LoadContent();
-			}
-			else if ((uri.find(L"about:blank#editor") == 0)) {
-				wstring text = L"about:blank#editor/";
-				wstring sectionID = uri.substr(text.size());
-				int section = _wtof(sectionID.c_str());
+			ChangeArticle(ref new Article(ref new String(pageName.c_str()), article->GetLang()));
+			//LoadContent();
+		}
+		else if ((uri.find(L"about:blank#editor") == 0)) {
+			wstring text = L"about:blank#editor/";
+			wstring sectionID = uri.substr(text.size());
+			int section = _wtof(sectionID.c_str());
 
-				EditSection(section);
-			}
+			EditSection(section);
+		}
 
-			else if (uri.find(L"about:/w/index.php?title=") == 0 && uri.find(L"action=edit&section=") != wstring::npos) {
+		else if (uri.find(L"about:/w/index.php?title=") == 0 && uri.find(L"action=edit&section=") != wstring::npos) {
 
-				wstring text = L"action=edit&section=";
-				int pos = uri.find(text);
-				
-				wstring sectionID = uri.substr(pos+text.size()).c_str();
-				int section = _wtof(sectionID.c_str());
-				EditSection(section);
-			}
-			else if (uri.find(L"about:blank") == 0) {
-				// Do nothing
-			}
-			else {
-				Launcher::LaunchUriAsync(args->Uri);
-			}
+			wstring text = L"action=edit&section=";
+			int pos = uri.find(text);
+			
+			wstring sectionID = uri.substr(pos+text.size()).c_str();
+			int section = _wtof(sectionID.c_str());
+			EditSection(section);
+		}
+		else if (uri.find(L"about:blank") == 0) {
+			// Do nothing
+		}
+		else {
+			Launcher::LaunchUriAsync(args->Uri);
+		}
 	}
 }
 
 void MainPage::TocAppBarButton_Click(Object^ sender, RoutedEventArgs^ e){
-	OutputDebugString(L"Method: tocappbarbuttonclick");
-	(sender);	// Unused parameter
-	(e);		// Unused parameter
-
 	TocContentDialog^ tcd = ref new TocContentDialog(article, WebViewControl);
 	tcd->ShowAsync();
 }
 
 void MainPage::EditAppBarButton_Click(Object^ sender, RoutedEventArgs^ e)
 {
-	OutputDebugString(L"Method: editapbarbuttonclick");
-	(sender);	// Unused parameter
-	(e);		// Unused parameter
+	//IVector<Object^>^ params = ref new Vector<Object^>();
+	Edit^ edit = ref new Edit(article, 0, nullptr, nullptr, nullptr);
+	//params->Append(edit);
+	//params->Append(this);
 
-	IVector<Object^>^ params = ref new Vector<Object^>();
-	params->Append(article);
-	params->Append(0);
-	params->Append(this);
-
-	this->Frame->Navigate(editPageType, params);
+	this->Frame->Navigate(editPageType, edit);
 }
 
 void MainPage::SearchAppBarButton_Click(Object^ sender, RoutedEventArgs^ e){
-	OutputDebugString(L"Method: searchappbarbutoonclicl");
-	(sender);	// Unused parameter
-	(e);		// Unused parameter
-
 	SearchContentDialog^ sp = ref new SearchContentDialog(article->GetLang(), this);
 	sp->ShowAsync();
 }
@@ -387,10 +358,6 @@ void MainPage::SearchAppBarButton_Click(Object^ sender, RoutedEventArgs^ e){
 // Calls the random page api and directs the user to that new page.
 //
 void MainPage::RandomAppBarButton_Click(Object^ sender, RoutedEventArgs^ e) {
-	OutputDebugString(L"Method: randomappbarbuttonclick");
-	(sender);	// Unused parameter
-	(e);		// Unused parameter
-
 	ConnectionProfile^ profile = NetworkInformation::GetInternetConnectionProfile();
 	if (profile != nullptr)	{
 		if (profile->NetworkAdapter != nullptr) {
@@ -439,28 +406,16 @@ void MainPage::RandomAppBarButton_Click(Object^ sender, RoutedEventArgs^ e) {
 }
 
 void MainPage::LanguageAppBarButton_Click(Object^ sender, RoutedEventArgs^ e) {
-	OutputDebugString(L"Method: langauageappbarbuttonclick");
-	(sender);	// Unused parameter
-	(e);		// Unused parameter
-	
 	LanguagesContentDialog^ lcd = ref new LanguagesContentDialog(article, this);
 	lcd->ShowAsync();
 }
 
 void MainPage::LoginAppBarButton_Click(Object^ sender, RoutedEventArgs^ e) {
-	OutputDebugString(L"Method: loginappbarbuttonclick");
-	(sender);	// Unused parameter
-	(e);		// Unused parameter
-
 	LoginPage^ lp = ref new LoginPage(this);
 	lp->ShowAsync();
 }
 
 void MainPage::LogoutAppBarButton_Click(Object^ sender, RoutedEventArgs^ e) {
-	OutputDebugString(L"Method: logoutappbarbuttonclick");
-	(sender);	// Unused parameter
-	(e);		// Unused parameter
-
 	// Check internet connection
 	ConnectionProfile^ profile = NetworkInformation::GetInternetConnectionProfile();
 
@@ -509,15 +464,10 @@ void MainPage::LogoutAppBarButton_Click(Object^ sender, RoutedEventArgs^ e) {
 }
 
 void MainPage::AboutAppBarButton_Click(Object^ sender, RoutedEventArgs^ e) {
-	OutputDebugString(L"Method: aboutappbarbuttonclick");
-	(sender);	// Unused parameter
-	(e);		// Unused parameter
-
 	this->Frame->Navigate(aboutPageType);
 }
 
 void MainPage::ObtainLanguageData(Article^ article) {
-	OutputDebugString(L"Method: obtainlanguagedata");
 	ConnectionProfile^ profile = NetworkInformation::GetInternetConnectionProfile();
 	
 	if (profile != nullptr)	{
@@ -589,7 +539,6 @@ void MainPage::ObtainLanguageData(Article^ article) {
 }
 
 void MainPage::ChangeArticle(Article^ article){
-	OutputDebugString(L"Method: changearticle");
 	this->article = article;
 
 	LoadContent();
@@ -625,8 +574,6 @@ void MainPage::CheckLoggedIn() {
 							auto values = ApplicationData::Current->LocalSettings->Values;
 							values->Remove("cookie");
 							values->Remove("username");
-							
-							//HelperFunctions::ErrorMessage(loader->GetString("logout"));
 						}
 						else {
 							ShowLoggedIn(userinfo->GetNamedString("username"));
@@ -667,12 +614,12 @@ void MainPage::ShowLoggedIn(String^ username) {
 }
 
 void MainPage::EditSection(int section) {
-	IVector<Object^>^ params = ref new Vector<Object^>();
-	params->Append(article);
-	params->Append(section);
-	params->Append(this);
+	//IVector<Object^>^ params = ref new Vector<Object^>();
+	Edit^ edit = ref new Edit(article, section, nullptr, nullptr, nullptr);
+	//params->Append(edit);
+	//params->Append(this);
 
-	this->Frame->Navigate(editPageType, params);
+	this->Frame->Navigate(editPageType, edit);
 
 }
 
@@ -731,7 +678,7 @@ void MainPage::LogIn(Windows::Security::Credentials::PasswordCredential^ cred){
 										Windows::Web::Http::Filters::HttpBaseProtocolFilter^ filter = ref new Windows::Web::Http::Filters::HttpBaseProtocolFilter();
 										HttpCookieCollection^ cookieCollection = filter->CookieManager->GetCookies(uri);
 
-										OutputDebugString((cookieCollection->Size + " cookies found.\r\n")->Data());
+										/*OutputDebugString((cookieCollection->Size + " cookies found.\r\n")->Data());
 										IIterator<HttpCookie^>^ iterator = cookieCollection->First();
 										while (iterator->HasCurrent)
 										{
@@ -766,7 +713,7 @@ void MainPage::LogIn(Windows::Security::Credentials::PasswordCredential^ cred){
 											}
 
 											iterator->MoveNext();
-										}
+										}*/
 
 										this->ShowLoggedIn(username);
 

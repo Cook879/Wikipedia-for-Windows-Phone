@@ -16,6 +16,7 @@ using namespace Windows::Data::Json;
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;
 using namespace Windows::Networking::Connectivity;
+using namespace Windows::Phone::UI::Input;
 using namespace Windows::UI::Popups;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
@@ -31,12 +32,12 @@ static TypeName savePageType = { "Wikipedia.SavePage", TypeKind::Metadata };
 static TypeName previewPageType = { "Wikipedia.PreviewPage", TypeKind::Metadata };
 static TypeName contentPageType = { "Wikipedia.MainPage", TypeKind::Metadata };
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=390556
 
 EditPage::EditPage()
 {
 	InitializeComponent();
 	loader = ref new Windows::ApplicationModel::Resources::ResourceLoader();
+	_backPressedToken = HardwareButtons::BackPressed += ref new EventHandler<BackPressedEventArgs^>(this, &EditPage::EditPage_BackPressed);
 }
 
 /// <summary>
@@ -46,55 +47,70 @@ EditPage::EditPage()
 /// This parameter is typically used to configure the page.</param>
 void EditPage::OnNavigatedTo(NavigationEventArgs^ e)
 {
-	IVector<Object^>^ params = (IVector<Object^>^)e->Parameter;
-	article = (Article^)params->GetAt(0);
-	section = (int)params->GetAt(1);
-	mainPage = (MainPage^)params->GetAt(2);
+	edit = (Edit^)e->Parameter;
+	
+	article = edit->GetArticle();
+	section = edit->GetSectionId();
 
-	ConnectionProfile^ profile = NetworkInformation::GetInternetConnectionProfile();
+	OutputDebugString(("\n\n\n section " + section + "\n\n\n\n")->Data());
 
-	if (profile != nullptr)	{
-		if (profile->NetworkAdapter != nullptr)	{
-			try {
-				httpClient = HelperFunctions::CreateHttpClient();
+	if (edit->GetText() != nullptr) {
+		EditBox->Text = edit->GetText();
+		token = edit->GetToken();
+		httpClient = edit->GetHttpClient();
+	}
+	else {
 
-				Uri^ uri;
-				if (section == 0)
-					uri = ref new Uri("https://" + article->GetLang() + ".wikipedia.org/w/api.php?format=json&action=query&titles=" + article->GetTitle() + "&prop=info|revisions&rvprop=content&intoken=edit");
-				else
-					uri = ref new Uri("https://" + article->GetLang() + ".wikipedia.org/w/api.php?format=json&action=query&titles=" + article->GetTitle() + "&prop=info|revisions&rvprop=content&intoken=edit&rvsection=" + section);
-				
-				create_task(httpClient->GetAsync(uri)).then([=](HttpResponseMessage^ response) {
-					response->EnsureSuccessStatusCode();
+		ConnectionProfile^ profile = NetworkInformation::GetInternetConnectionProfile();
 
-					return create_task(response->Content->ReadAsStringAsync());
-				}).then([=](String^ responseString) {
-					JsonObject^ json = JsonValue::Parse(responseString)->GetObject();
+		if (profile != nullptr)	{
+			if (profile->NetworkAdapter != nullptr)	{
+				try {
+					httpClient = HelperFunctions::CreateHttpClient();
+					edit->SetHttpClient(httpClient);
 
-					// Navigate through the objects
-					if (json->HasKey("query")){
-						JsonObject^ query = json->GetObject()->GetNamedObject("query");
+					Uri^ uri;
+					if (section == 0)
+						uri = ref new Uri("https://" + article->GetLang() + ".wikipedia.org/w/api.php?format=json&action=query&titles=" + article->GetTitle() + "&prop=info|revisions&rvprop=content&intoken=edit");
+					else
+						uri = ref new Uri("https://" + article->GetLang() + ".wikipedia.org/w/api.php?format=json&action=query&titles=" + article->GetTitle() + "&prop=info|revisions&rvprop=content&intoken=edit&rvsection=" + section);
 
-						if (query->HasKey("pages")) {
-							JsonObject^ pages = query->GetNamedObject("pages");
+					create_task(httpClient->GetAsync(uri)).then([=](HttpResponseMessage^ response) {
+						response->EnsureSuccessStatusCode();
 
-							/* Start hack-y way to get the json for the page as it doesn't like GetObject() */
-							std::wstring pageIdString(pages->Stringify()->Data());
-							int endPos = pageIdString.find(':');
-							pageIdString = pageIdString.erase(0, endPos + 1);
-							pageIdString = pageIdString.erase(pageIdString.length() - 1, 1);
-							JsonValue^ pageId = JsonValue::Parse(ref new String(pageIdString.c_str()));
-							/* End hack-y code */
+						return create_task(response->Content->ReadAsStringAsync());
+					}).then([=](String^ responseString) {
+						JsonObject^ json = JsonValue::Parse(responseString)->GetObject();
 
-							JsonObject^ pageData = pageId->GetObject();
+						// Navigate through the objects
+						if (json->HasKey("query")){
+							JsonObject^ query = json->GetObject()->GetNamedObject("query");
 
-							if (pageData->HasKey("title") && pageData->HasKey("edittoken") && pageData->HasKey("revisions")) {
-								Title->Text = L"Editing " + pageData->GetNamedString("title");
-								token = pageData->GetNamedString("edittoken");
+							if (query->HasKey("pages")) {
+								JsonObject^ pages = query->GetNamedObject("pages");
 
-								JsonArray^ contentArray = pageData->GetNamedArray("revisions");
-								JsonObject^ contentObject = contentArray->GetObjectAt(0);
-								EditBox->Text = contentObject->GetNamedString("*");
+								/* Start hack-y way to get the json for the page as it doesn't like GetObject() */
+								std::wstring pageIdString(pages->Stringify()->Data());
+								int endPos = pageIdString.find(':');
+								pageIdString = pageIdString.erase(0, endPos + 1);
+								pageIdString = pageIdString.erase(pageIdString.length() - 1, 1);
+								JsonValue^ pageId = JsonValue::Parse(ref new String(pageIdString.c_str()));
+								/* End hack-y code */
+
+								JsonObject^ pageData = pageId->GetObject();
+
+								if (pageData->HasKey("title") && pageData->HasKey("edittoken") && pageData->HasKey("revisions")) {
+									Title->Text = L"Editing " + pageData->GetNamedString("title");
+									token = pageData->GetNamedString("edittoken");
+									edit->SetToken(token);
+
+									JsonArray^ contentArray = pageData->GetNamedArray("revisions");
+									JsonObject^ contentObject = contentArray->GetObjectAt(0);
+									EditBox->Text = contentObject->GetNamedString("*");
+								}
+								else {
+									HelperFunctions::ErrorMessage(loader->GetString("standardError"));
+								}
 							}
 							else {
 								HelperFunctions::ErrorMessage(loader->GetString("standardError"));
@@ -103,38 +119,38 @@ void EditPage::OnNavigatedTo(NavigationEventArgs^ e)
 						else {
 							HelperFunctions::ErrorMessage(loader->GetString("standardError"));
 						}
-					}
-					else {
-						HelperFunctions::ErrorMessage(loader->GetString("standardError"));
-					}
-				}).then([=](task<void> prevTask) {
-					try {
-						prevTask.get();
-					}
-					catch (Exception ^ex) {
-						return;
-					}
-				});
+					}).then([=](task<void> prevTask) {
+						try {
+							prevTask.get();
+						}
+						catch (Exception ^ex) {
+							return;
+						}
+					});
+				}
+				catch (Exception^ e) {
+					HelperFunctions::ErrorMessage(loader->GetString("standardError"));
+				}
 			}
-			catch (Exception^ e) {
-				HelperFunctions::ErrorMessage(loader->GetString("standardError"));
+			else {
+				HelperFunctions::ErrorMessage(loader->GetString("noInternet"));
 			}
-		} else {
+		}
+		else {
 			HelperFunctions::ErrorMessage(loader->GetString("noInternet"));
 		}
-	} else {
-		HelperFunctions::ErrorMessage(loader->GetString("noInternet"));
 	}
 }
 
 void EditPage::SaveAppBarButton_Click() {
-	Edit^ e = CreateEdit();
-	this->Frame->Navigate(savePageType, e);
+	//Edit^ e = CreateEdit();
+	edit->SetText(EditBox->Text);
+	this->Frame->Navigate(savePageType, edit);
 }
 
 void EditPage::PreviewAppBarButton_Click() {
-	Edit^ e = CreateEdit();
-	this->Frame->Navigate(previewPageType, e);
+	edit->SetText(EditBox->Text);
+	this->Frame->Navigate(previewPageType, edit);
 }
 
 void EditPage::CancelAppBarButton_Click() {
@@ -159,3 +175,12 @@ void EditPage::GoBack(IUICommand^ command){
 	this->Frame->Navigate(contentPageType, article);
 }
 
+void EditPage::EditPage_BackPressed(Object^ sender, BackPressedEventArgs^ e) {
+	this->Frame->Navigate(contentPageType, article);
+	e->Handled = true;
+}
+
+void EditPage::OnNavigatedFrom(NavigationEventArgs^ e)
+{
+	HardwareButtons::BackPressed -= _backPressedToken;
+}

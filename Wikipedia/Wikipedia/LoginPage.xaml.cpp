@@ -28,7 +28,7 @@ using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Navigation;
 using namespace Windows::Web::Http;
 
-static Windows::UI::Xaml::Interop::TypeName contentPageType = { "Wikipedia.MainPage", Windows::UI::Xaml::Interop::TypeKind::Metadata };
+//static Windows::UI::Xaml::Interop::TypeName contentPageType = { "Wikipedia.MainPage", Windows::UI::Xaml::Interop::TypeKind::Metadata };
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=390556
 
@@ -91,12 +91,6 @@ void LoginPage::LoginButton_Click() {
 
 									return create_task(response->Content->ReadAsStringAsync());
 								}).then([=](String^ responseString) {
-									// DEBUG
-									std::wstring s(responseString->Data());
-									std::wstring stemp = std::wstring(s.begin(), s.end());
-									LPCWSTR sw = stemp.c_str();
-									OutputDebugString(sw);
-
 									JsonObject^ json = JsonValue::Parse(responseString)->GetObject();
 									if (json->HasKey("login")) {
 										json = json->GetNamedObject("login");
@@ -115,42 +109,6 @@ void LoginPage::LoginButton_Click() {
 
 											Windows::Web::Http::Filters::HttpBaseProtocolFilter^ filter = ref new Windows::Web::Http::Filters::HttpBaseProtocolFilter();
 											HttpCookieCollection^ cookieCollection = filter->CookieManager->GetCookies(uri);
-
-											OutputDebugString((cookieCollection->Size + " cookies found.\r\n")->Data());
-											IIterator<HttpCookie^>^ iterator = cookieCollection->First();
-											while (iterator->HasCurrent)
-											{
-												HttpCookie^ cookie = iterator->Current;
-
-
-												OutputDebugString(L"--------------------\r\n");
-												OutputDebugString(("Name: " + cookie->Name + "\r\n")->Data());
-												OutputDebugString(("Domain: " + cookie->Domain + "\r\n")->Data());
-												OutputDebugString(("Path: " + cookie->Path + "\r\n")->Data());
-												OutputDebugString(("Value: " + cookie->Value + "\r\n")->Data());
-												if (cookie->Expires)
-												{
-													OutputDebugString(("Expires: " + cookie->Expires->Value.UniversalTime + "\r\n")->Data());
-												}
-												else
-												{
-													OutputDebugString(L"Expires:\r\n");
-												}
-												OutputDebugString(("Secure: " + cookie->Secure + "\r\n")->Data());
-												OutputDebugString(("HttpOnly: " + cookie->HttpOnly + "\r\n")->Data());
-
-												String^ nameStr = cookie->Name;
-												wstring name = nameStr->Data();
-												if (name.find(L"Session") != wstring::npos) {
-													ApplicationData::Current->LocalSettings->Values->Insert("cookieName", cookie->Name);
-													ApplicationData::Current->LocalSettings->Values->Insert("cookieDomain", cookie->Domain);
-													ApplicationData::Current->LocalSettings->Values->Insert("cookiePath", cookie->Path);
-													ApplicationData::Current->LocalSettings->Values->Insert("cookieValue", cookie->Value);
-													break;
-												}
-
-												iterator->MoveNext();
-											}
 
 											mainPage->ShowLoggedIn(username);
 
